@@ -345,21 +345,49 @@
           </div>
 
           <div class="col-md-7 mb-5 site-animate">
-            <form action="" method="post">
+            <form id="whatsappForm">
               <div class="form-group">
-                <label for="name" class="sr-only">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Name">
+                  <label for="name" class="sr-only">Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Name">
               </div>
               <div class="form-group">
-                <label for="email" class="sr-only">Email</label>
-                <input type="text" class="form-control" id="email" placeholder="Email">
+                  <label for="email" class="sr-only">Email</label>
+                  <input type="text" class="form-control" id="email" placeholder="Email">
               </div>
               <div class="form-group">
-                <label for="message" class="sr-only">Message</label>
-                <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Write your message"></textarea>
+                  <label for="message" class="sr-only">Message</label>
+                  <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Write your message"></textarea>
               </div>
-        
-            </form>
+              <button type="button" onclick="sendWhatsAppMessage()" class="btn btn-primary">Send WhatsApp Message</button>
+          </form>
+<script>
+  function sendWhatsAppMessage() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    if (!name) {
+        alert("Name is required");
+        return;
+    }
+
+    // Constructing the WhatsApp message
+    let content = "Name: " + name + "%0A";
+    if (email) {
+        content += "Email: " + email + "%0A";
+    }
+    content += "Message: " + message;
+
+    // Constructing WhatsApp URL
+    let recipientNumber = "919961298411"; // Replace with your recipient's WhatsApp number
+    let whatsappURL = "https://wa.me/" + recipientNumber + "?text=" + encodeURIComponent(content);
+
+    // Opening WhatsApp chat window
+    window.open(whatsappURL, "_blank");
+}
+
+</script>
+          
           </div>
           <div class="col-md-1"></div>
           <div class="col-md-4 site-animate">
