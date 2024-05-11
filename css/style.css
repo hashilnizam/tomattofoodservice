@@ -8,7 +8,15 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: #747474;
+  overflow-x: hidden;
 }
+
+@media screen and (max-width: 768px) {
+  body, html {
+    overflow-x: hidden !important;
+  }
+}
+
 
 a {
   -webkit-transition: .3s all ease;
