@@ -301,6 +301,7 @@ h1, h2, h3, h4, h5,
 
 .menu-item {
   margin-bottom: 30px;
+  height: 130px;
 }
 
 .menu-item img {
